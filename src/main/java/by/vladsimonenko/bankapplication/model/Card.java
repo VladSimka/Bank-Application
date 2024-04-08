@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
-@Table(name = "t_card")
+@Table(name = "t_cards")
 public class Card {
 
     @Id
@@ -16,12 +16,14 @@ public class Card {
 
     private Long number;
 
-    private Timestamp date;
+    private String date;
 
     private Integer cvv;
+    private BigDecimal balance;
 
     @OneToMany
     @JoinTable(
+            name = "t_cards_transactions",
             joinColumns = @JoinColumn(name = "card_id"),
             inverseJoinColumns = @JoinColumn(name = "transaction_id")
     )

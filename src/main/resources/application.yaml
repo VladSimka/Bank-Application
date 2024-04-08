@@ -1,1 +1,14 @@
-spring.application.name=Bank-Application
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bank
+    username: vlad
+    password: vlad
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties.hibernate:
+      hbm2ddl.auto: validate
+
+  liquibase:
+    change-log: classpath:liquibase/db.changelog.yaml
+    enabled: true
