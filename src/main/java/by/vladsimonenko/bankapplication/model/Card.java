@@ -1,6 +1,10 @@
 package by.vladsimonenko.bankapplication.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -8,6 +12,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "t_cards")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Card {
 
     @Id
@@ -19,6 +27,7 @@ public class Card {
     private String date;
 
     private Integer cvv;
+
     private BigDecimal balance;
 
     @OneToMany
@@ -36,6 +45,7 @@ public class Card {
     private BigDecimal monthLimit;
 
     private Timestamp dateOfSettingLimit;
+
     private Boolean limitExceeded;
 
 }

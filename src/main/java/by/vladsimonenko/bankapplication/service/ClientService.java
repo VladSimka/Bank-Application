@@ -4,5 +4,14 @@ import by.vladsimonenko.bankapplication.model.Client;
 
 public interface ClientService {
 
-    public Client findById(Integer id);
+    Client findById(Integer id);
+
+    Client findByUsername(String username);
+
+    Client update(Client client);
+
+    void deleteById(Integer id);
+
+    Client create(Client client);
+
 }
