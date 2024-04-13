@@ -1,8 +1,8 @@
 create table if not exists t_accounts
 (
     id      serial primary key,
-    number  bigint not null unique,
-    balance numeric  not null
+    number  bigint  not null unique,
+    balance numeric not null
 );
 
 
@@ -10,12 +10,12 @@ create table if not exists t_accounts
 create table if not exists t_cards
 (
     id                    serial primary key,
-    number                bigint      not null unique,
+    number                varchar(25) not null unique,
     date                  varchar(10) not null,
     cvv                   integer     not null,
-    balance               numeric       not null,
+    balance               numeric     not null,
     account_id            integer     not null,
-    month_limit           numeric       not null,
+    month_limit           numeric     not null,
     date_of_setting_limit timestamp   not null,
     limit_exceeded        boolean     not null,
 
@@ -31,7 +31,7 @@ create table if not exists t_transactions
     to_id    integer    not null,
     currency varchar(3) not null,
     date     timestamp  not null,
-    amount   numeric      not null,
+    amount   numeric    not null,
     constraint fk_transactions_cards_from foreign key (from_id) references t_cards (id),
     constraint fk_transactions_cards_to foreign key (to_id) references t_cards (id)
 );

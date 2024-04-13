@@ -22,7 +22,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Long number;
+    private String number;
 
     private String date;
 

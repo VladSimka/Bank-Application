@@ -4,8 +4,8 @@ INSERT INTO t_accounts (number, balance) VALUES
 
 INSERT INTO t_cards (number, date, cvv, balance, account_id, month_limit, date_of_setting_limit, limit_exceeded)
 VALUES
-                         (111111111, '12/25', 123, 2000.0, 1, 500.0, '2024-04-10 10:00:00', false),
-                         (222222222, '06/23', 456, 3000.0, 1, 1000.0, '2024-04-10 10:00:00', false);
+                         ('1234-1234-1234-1234', '12/25', 123, 2000.0, 1, 500.0, '2024-04-10 10:00:00', false),
+                         ('4321-4321-4321-4321', '06/23', 456, 3000.0, 1, 1000.0, '2024-04-10 10:00:00', false);
 
 INSERT INTO t_transactions (from_id, to_id, currency, date, amount) VALUES
                                                                         (1, 2, 'USD', '2024-04-10 10:30:00', 500.0),

@@ -32,7 +32,6 @@ public class CardServiceImpl implements CardService {
     }
 
     @Transactional
-
     @Override
     public void deleteById(Integer id) {
         cardRepository.deleteById(id);
