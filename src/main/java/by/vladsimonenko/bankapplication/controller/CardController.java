@@ -1,12 +1,13 @@
 package by.vladsimonenko.bankapplication.controller;
 
+import by.vladsimonenko.bankapplication.dto.CardRequestDto;
 import by.vladsimonenko.bankapplication.dto.CreateCardRequestDto;
 import by.vladsimonenko.bankapplication.dto.CreateCardResponseDto;
 import by.vladsimonenko.bankapplication.mapper.CardMapper;
 import by.vladsimonenko.bankapplication.model.Card;
 import by.vladsimonenko.bankapplication.service.CardService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,15 +20,16 @@ public class CardController {
     private final CardMapper cardMapper;
 
     @GetMapping
-    public List<Card> getCards(@PathVariable("clientId") Integer clientId) {
+    public List<CardRequestDto> getCards(@PathVariable("clientId") Integer clientId) {
+        List<Card> allCardsByClientId = cardService.findAllCardsByClientId(clientId);
 
-        return cardService.findAllCardsByClientId(clientId);
+        return cardMapper.toDto(allCardsByClientId);
     }
 
     @PostMapping
     public CreateCardResponseDto createCard(
             @PathVariable("clientId") Integer clientId,
-            @RequestBody @Valid CreateCardRequestDto request) {
+            @RequestBody @Validated CreateCardRequestDto request) {
         Card toCreate = cardMapper.toEntity(request);
         Card created = cardService.create(toCreate, clientId);
 

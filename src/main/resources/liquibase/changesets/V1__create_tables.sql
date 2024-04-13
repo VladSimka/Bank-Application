@@ -12,9 +12,9 @@ create table if not exists t_cards
     id                    serial primary key,
     number                varchar(25) not null unique,
     date                  varchar(10) not null,
-    cvv                   integer     not null,
+    cvv                   VARCHAR(3)  not null,
     balance               numeric     not null,
-    account_id            integer     not null,
+    account_id            integer,
     month_limit           numeric     not null,
     date_of_setting_limit timestamp   not null,
     limit_exceeded        boolean     not null,
@@ -26,7 +26,6 @@ create table if not exists t_cards
 create table if not exists t_transactions
 (
     id       serial primary key,
-
     from_id  integer    not null,
     to_id    integer    not null,
     currency varchar(3) not null,

@@ -1,10 +1,7 @@
 package by.vladsimonenko.bankapplication.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -16,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString(exclude = {"transactions","account"})
 public class Card {
 
     @Id
@@ -26,7 +24,7 @@ public class Card {
 
     private String date;
 
-    private Integer cvv;
+    private String cvv;
 
     private BigDecimal balance;
 
