@@ -12,3 +12,8 @@ spring:
   liquibase:
     change-log: classpath:liquibase/db.changelog.yaml
     enabled: true
+
+
+security:
+  jwt:
+    secret: 2a$12$h/ZKTXJe3Y5uny5buQ5xJeMgH3mLttIWx.IqUPDFRBFBpZ2k08f/u

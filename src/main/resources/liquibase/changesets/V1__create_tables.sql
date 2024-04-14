@@ -41,7 +41,8 @@ create table if not exists t_clients
     name       varchar(100) not null,
     username   varchar(100) not null,
     password   varchar(100) not null,
-    account_id integer      not null,
+    account_id integer,
+    role       varchar(20) default 'USER',
     constraint fk_t_client_account foreign key (account_id) references t_accounts (id)
 
 );
