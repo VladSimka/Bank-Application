@@ -12,6 +12,4 @@ public interface ClientService {
 
     void deleteById(Integer id);
 
-    Client create(Client client);
-
 }

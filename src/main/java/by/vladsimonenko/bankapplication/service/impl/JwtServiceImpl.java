@@ -6,6 +6,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,10 @@ import java.util.Map;
 import java.util.function.Function;
 
 @Service
-@ConfigurationProperties(prefix = "security.jwt")
+@Getter
 public class JwtServiceImpl implements JwtService {
 
+    @Value("${security.jwt.secret}")
     private String secret;
 
     @Override

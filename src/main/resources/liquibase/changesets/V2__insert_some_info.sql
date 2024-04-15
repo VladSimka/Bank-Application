@@ -12,8 +12,8 @@ INSERT INTO t_transactions (from_id, to_id, currency, date, amount) VALUES
                                                                         (2, 1, 'USD', '2024-04-10 11:00:00', 300.0);
 
 INSERT INTO t_clients (name, username, password, account_id) VALUES
-                                                                 ('John Doe', 'johndoe', 'password123', 1),
-                                                                 ('Jane Smith', 'janesmith', 'qwerty456', 2);
+                                                                 ('John Doe', 'johndoe', '$2a$10$.Yyl23HQfjFgHxfq00cyZ.Dm7rhLJJrOjSuFbh2DUvbOeN2EhCuqy', 1),
+                                                                 ('Jane Smith', 'janesmith', '$2a$10$2wVmZBtBXEF0G4iRBzWWEOHtlLtUcJDUwouG4q8QdLRKwMHMrE2Ry', 2);
 
 INSERT INTO t_clients_cards (client_id, card_id) VALUES
                                                      (1, 1),
